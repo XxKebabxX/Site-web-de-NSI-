@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>UTF-8: Petite Introduction</h1>
+    <section>
+      <article>
+        <h2>L'UTF-8:</h2>
+        <ul>
+          <li>
+            UTF-8 a été développé par
+            <a href="https://en.wikipedia.org/wiki/Ken_Thompson"
+              >Ken Thompsom</a
+            >
+            et <a href="https://en.wikipedia.org/wiki/Rob_Pike">Rob Pike</a> des
+            Bell Labs en 1992. Leur objectif était de créer un système de codage
+            de caractères plus profond que l'<strong
+              ><a
+                href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange"
+                >ASCII</a
+              ></strong
+            >, le système de codage de caractères populaire à l'époque. UTF-8
+            représentent tous les caractères de la norme Unicode.
+          </li>
+          <li>
+            L’UTF-8 est un encodage standard de caractères utilisé dans la
+            communication électronique.
+          </li>
+          <li>L’UTF signifie Format de Transformation Unicode- 8 bit</li>
+          <li>
+            L’UTF-8 a été développé par l’ISO dans la norme internationale
+            <a href="https://fr.wikipedia.org/wiki/ISO/CEI_10646"
+              >ISO/CEI 10646</a
+            >.
+          </li>
+        </ul>
+      </article>
+      <article>
+        <h2><a href="https://fr.wikipedia.org/wiki/Unicode">Unicode</a>:</h2>
+        <p>
+          Il s’agit d’une norme qui permet un encodage universel des caractères
+          à travers le monde. En effet, il existe des codes
+          <strong>ASCII</strong> étendus qui reprennent le code
+          <strong>ASCII</strong>, en y ajoutant les caractères spéciaux associés
+          à chaque langage. Il s’agissait d’une bonne solution jusqu’à quand on
+          s’aperçoit que la communication internationale était quasiment
+          impossible. Chaque langue possédait son code
+          <strong>ASCII</strong> étendu, ainsi un utilisateur russe aurait eu du
+          mal à ouvrir un fichier codé en arabe.
+        </p>
+        <p>
+          L’Unicode a donc résolu le problème en mettant tous les caractères sur
+          une très grande plage de données, les regroupant dans des plans.
+          L’Unicode peut encoder en tout <strong>1 114 112</strong> points de
+          code, ce qui est largement suffisant pour encoder tous les caractères
+          et symboles que l’on connaît. Il y a en tout
+          <strong>17</strong> plans, et dans chaque plan, existe des blocs pour
+          organiser tous les caractères semblables par langue et par code.
+        </p>
+        <p>
+          Néanmoins, un nouveau problème survient lors de l’encodage des
+          caractères dans un fichier texte. Si nous voulons être sûr de pouvoir
+          encoder tous les caractères, nous devons mettre 4 octets pour chaque
+          caractère. Vous vous en doutez sûrement, en utilisant ce système, la
+          capacité nécessaire explose. Car oui, la plupart des caractères
+          utilisés quotidiennement dans la plupart des langages tels que le
+          français ou l’anglais n’utilisent qu’en partie que l’encodage
+          <strong>ASCII</strong>.
+        </p>
+      </article>
+      <a href="./index.html"
+        >Prochaine page pour comprendre l'encodage des caractères en UTF-8</a
+      >
+    </section>
+  </body>
+</html>
