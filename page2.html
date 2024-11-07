@@ -3,20 +3,26 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Présentantation du fonctionnement de l'UTF-8</title>
+        <title>Document</title>
       </head>
-      <body>
+      </body>
          <h1>UTF-8: Présentation</h1>
          <section>
             <article>
-              <h2>Comment L'UTF-8 reconnaît les caractères à encoder sur le nombre d'octet que la machine possede ?</h2>
+              <h2>Comment L'UTF-8 reconnaît les caractères à encoder sur le nombre d'octet que la machine possède ?</h2>
               <ul>
                 <li>
-                    → L'encoder est un processus de conversion des données dans le format nécessaire aux exigences de traitement de l'information .</li>
+                    L'encodeur est un processus de conversion des données dans le format nécessaire aux exigences de traitement de l'information .</li>
                 <li>
-                    → L'UTF-8 utilise 1 octet ( 8 bits ) pour chaque caractère et symbole en anglais , 2 octets ( 16 bits ) pour les caractères latins et du Moyen-Orient , 3 octets (24 bits )pour les caractères asiatiques. 
-                      Les caractères supplémentaires peuvent être représentés par 4 octets (32 bits) . Ce qui s'agit pour l'UTF-8 devient un type 
-                      d'encodage Unicode le plus courant.Voici comment fonctionne essentiellement l'UTF-8.</li> 
+                    Dans un fichier texte contenant des caractères de taille variables (1 bit, 2 bit, etc...),
+                    l'UTF-8 est capable d'encoder ce fichier texte de façon à ce qu'il n'encode que les caractères
+                    nécessaires avec le nombre de bits demandés. Cela évite de tout encoder sur un nombre trop important de bits,
+                    crucial pour pouvoir stocker une quantité importante de données.
+                </li>
+                <li>
+                    L'UTF-8 utilise 1 octet ( 8 bits ) pour chaque caractère et symbole en anglais , 2 octets ( 16 bits ) pour les caractères latins et du Moyen-Orient , 3 octets ( 24 bits ) pour les caractères asiatiques. 
+                    Les caractères supplémentaires tels que les emojis et autres symboles spécifiques peuvent être représentés par 4 octets ( 32 bits ) . Ce qui s'agit pour l'UTF-8 devient un type 
+                    d'encodage Unicode le plus courant. Voici comment fonctionne essentiellement l'UTF-8.</li> 
                </ul>
                </article>
             <article>
@@ -27,11 +33,9 @@
                 Cela permet de garantir la compatibilité avec le codage ASCII et par conséquent, en UTF-8 tous les caractères ASCII sont représentés exactement de la même manière qu'en ASCII avec la represenation d'un octet.
               </p>
               <p>
+                Exemple (Caractère "A"): 
                 <ul>
-                <li>
-                exemple :
-                </li>
-                Prennez l'exemple pour le Caractère "A" 
+                
                 <li>
                 Code Unicode : U+0041 = code sur 1 octet car U+0041 est comprise entre (U+0000 à U+007F)
                <li>
@@ -45,31 +49,27 @@
                </ul>
                 
               </p>
-            </article>
             <article>
              <h3>Représentation des caractères non-ASCII (2-4 octets)</h3>
-              <p>
-                Pour les caractères <strong>non-ASCII</strong>, UTF-8 utilise plus d'octets. 
-                UTF-8 détermine d'abord le nombre d'octets nécessaires pour représenter
-                un caractère en examinant la valeur du caractère dans le codage Unicode. 
-                Dans le système de codage UTF-8, les caractères Unicode sont représentés par 
-                un nombre d'octets différent, en fonction du code Unicode du caractère. C'est-à-dire l'UTF-8 utilise des types de codage avec une longueur variable qui 
-                correpond au nombre d'octets nécessaires pour représenter un caractère et cela <strong>dépend de sa valeur Unicode.</strong>
-                Spécifiquement:
-
-              </p>
+            </article>
+            <p>
+              Pour les caractères <strong>non-ASCII</strong>, UTF-8 utilise plus d'octets. 
+              UTF-8 détermine d'abord le nombre d'octets nécessaires pour représenter
+              un caractère en examinant la valeur du caractère dans le codage Unicode. 
+              Dans le système de codage UTF-8, les caractères Unicode sont représentés par 
+              un nombre d'octets différent, en fonction du code Unicode du caractère. C'est-à-dire l'UTF-8 utilise des types de codage avec une longueur variable qui 
+              correpond au nombre d'octets nécessaires pour représenter un caractère et cela <strong>dépend de sa valeur Unicode.</strong>
+              Spécifiquement:
               <ul>
                 <li>
-                    Les caractères Unicode de U+0080 à U+07FF sont représentés par 2 octets. ( est de 128 à 2047 dans le système décimal )
-                  <li>
-                    Les caractères Unicode de U+0800 à U+FFFF sont représentés par 3 octets. (est de 2048 à 65535 dans le système décimal)
-                  <li>
-                    Les caractères Unicode de U+10000 à U+10FFFF sont représentés par 4 octets.(est de 655366 à 4 294 967 295 dans le système décimal)
-                  </li>
+                  Les caractères Unicode de U+0080 à U+07FF sont représentés par 2 octets. (128 à 2 047 dans le système décimal )
+                <li>
+                  Les caractères Unicode de U+0800 à U+FFFF sont représentés par 3 octets. (2 048 à 65 535 dans le système décimal)
+                <li>
+                  Les caractères Unicode de U+10000 à U+10FFFF sont représentés par 4 octets. (65 536 à 4 294 967 295 dans le système décimal)
+                </li>
               </ul>
-                → Les x representent comme les bits du code Unicode .
-
-            </article>
+            </p>
              <article>
                <ul>
                <h3> Header Byte ( un préfixe d'octet ) </h3>
@@ -79,31 +79,35 @@
               commence par <strong>un préfixe d'octet</strong> pour indiquer le nombre d'octets utilisés pour ce caractère. 
               Le préfixe d'octet comporte des bits spéciaux pour spécifier le nombre d'octets et le format de représentation. 
               Par exemple:
-                <ul>
-                <li>
-                    Un caractère de 2 octets commence par le préfixe 
-                    « <strong>110</strong>xxxxx 10xxxxxx ».
-                  <li>
-                    Un caractère de 3 octets commence par le préfixe 
-                    « <strong>1110</strong>xxxx 10xxxxxx 10xxxxxx ».
-                  <li> 
-                    Un caractère de 4 octets commence par le préfixe
-                     « <strong>11110</strong>xxx 10xxxxxx 10xxxxxx 10xxxxxx ». 
-                </li>
-                </ul>
+                <table border="5">
+                  <tr>
+                    <th>Nombre d'octets pour un caractère:</th>
+                    <th>Préfixe</th>
+                  </tr>
+                  <tr>
+                    <td>2
+                    </td>
+                    <td><strong>110</strong>xxxxx 10xxxxxx
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td><strong>1110</strong>xxxx 10xxxxxx 10xxxxxx</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td><strong>11110</strong>xxx 10xxxxxx 10xxxxxx 10xxxxxx</td>
+                  </tr>
+                </table>
+                
                </p>
             </article>
-            <article>
-              <ul>
-              <h3>Continuation Byte ( Octets de Données )</h3>
-              </ul>
-              <p>
-                Après le préfixe d'octet (Header Byte), les octets sont alors appelés <strong>Octets de Données</strong> ou octets consécutifs ( Continuation Byte:). 
-                Les octets de données commencent toujours par « <strong>10</strong>xxxxxx » pour les distinguer du préfixe d'octet.Même choose pour 2,3 et 4 octets.
-              </p>
-            </article>
-          </section>
-            <a href="./index.html"
-                    >Aller à la page d'accueil
-                  >
-            </body>
+              <article>
+                <ul>
+                <h3>Continuation Byte ( Octets de Données )</h3>
+                </ul>
+                <p>
+                  Après le préfixe d'octet (Header Byte), les octets sont alors appelés <strong>Octets de Données</strong> ou octets consécutifs ( Continuation Byte:). 
+                  Les octets de données commencent toujours par « <strong>10</strong>xxxxxx » pour les distinguer du préfixe d'octet. Même choose pour 2,3 et 4 octets.
+                </p>
+              </article>
